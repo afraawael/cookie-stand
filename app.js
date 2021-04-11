@@ -78,3 +78,36 @@ Tokyo.getcustumernumber();
 Tokyo.getAverageCookisPerHour();
 
 
+const Dubai = {
+    min: 11 ,
+    max: 38 ,
+    Avg: 3.7 ,
+    numberOfCustumer: [],
+    AverageCookisPerHour: [],
+    getcustumernumber: function () {
+        for (let i = 0; i <= hours.length - 1; i++) {
+            this.numberOfCustumer[i] = randomValue(this.min, this.max)
+        };
+        console.log('number of custumer array',Dubai.numberOfCustumer)
+    },
+    getAverageCookisPerHour: function () {
+        for (let n = 0; n <= this.numberOfCustumer.length - 1; n++) {
+            this.AverageCookisPerHour.push(Math.floor(this.numberOfCustumer[n] * this.Avg))
+        }
+        console.log('Average Cookis Per Hour',this.AverageCookisPerHour)
+    },
+    display:function(){
+        let container = document.getElementById('display');
+        let unorderlist = document.createElement('ul');
+        container.appendChild(unorderlist);
+        let li = [];
+        for(let i = 0 ; i < hours.length ; i++){
+            li = document.createElement('li');
+            unorderlist.appendChild(li);
+            li.textContent = this.numberOfCustumer[i];
+        }},
+
+}
+Dubai.getcustumernumber();
+Dubai.getAverageCookisPerHour();
+
