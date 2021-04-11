@@ -111,3 +111,37 @@ const Dubai = {
 Dubai.getcustumernumber();
 Dubai.getAverageCookisPerHour();
 
+
+
+const Paris = {
+    min: 20 ,
+    max: 38 ,
+    Avg: 2.3 ,
+
+    numberOfCustumer: [],
+    AverageCookisPerHour: [],
+    getcustumernumber: function () {
+        for (let i = 0; i <= hours.length - 1; i++) {
+            this.numberOfCustumer[i] = randomValue(this.min, this.max)
+        };
+        console.log('number of custumer array',Paris.numberOfCustumer)
+    },
+    getAverageCookisPerHour: function () {
+        for (let n = 0; n <= this.numberOfCustumer.length - 1; n++) {
+            this.AverageCookisPerHour.push(Math.floor(this.numberOfCustumer[n] * this.Avg))
+        }
+        console.log('Average Cookis Per Hour',this.AverageCookisPerHour)
+    },
+    display:function(){
+        let container = document.getElementById('display');
+        let unorderlist = document.createElement('ul');
+        container.appendChild(unorderlist);
+        let li = [];
+        for(let i = 0 ; i < hours.length ; i++){
+            li = document.createElement('li');
+            unorderlist.appendChild(li);
+            li.textContent = this.numberOfCustumer[i];
+        }},
+}
+Paris.getcustumernumber();
+Paris.getAverageCookisPerHour();
