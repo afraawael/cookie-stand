@@ -22,7 +22,7 @@ const Seattle = {
         let container = document.getElementById('display');
         let unorderlist = document.createElement('ul');
         container.appendChild(unorderlist);
-        let li = null;
+        let li = 0;
         for(let i = 0 ; i < hours.length ; i++){
             li = document.createElement('li');
             unorderlist.appendChild(li);
@@ -34,7 +34,7 @@ const Seattle = {
 
 Seattle.getcustumernumber();
 Seattle.getAverageCookisPerHour();
-Seattle.display();
+
 
 
 function randomValue(min, max) { 
@@ -42,5 +42,39 @@ function randomValue(min, max) {
 }
 
 
+
+const Tokyo = {
+    min: 3 ,
+    max: 24 ,
+    Avg: 1.2 ,
+    numberOfCustumer: [],
+    AverageCookisPerHour: [],
+    getcustumernumber: function () {
+        for (let i = 0; i <= hours.length - 1; i++) {
+            this.numberOfCustumer[i] = randomValue(this.min, this.max)
+        };
+        console.log('number of custumer array',Tokyo.numberOfCustumer)
+    },
+    getAverageCookisPerHour: function () {
+        for (let n = 0; n <= this.numberOfCustumer.length - 1; n++) {
+            this.AverageCookisPerHour.push(Math.floor(this.numberOfCustumer[n] * this.Avg))
+        }
+        console.log('Average Cookis Per Hour',this.AverageCookisPerHour)
+    },
+
+    display:function(){
+        let container = document.getElementById('display');
+        let unorderlist = document.createElement('ul');
+        container.appendChild(unorderlist);
+        let li = 0;
+        for(let i = 0 ; i < hours.length ; i++){
+            li = document.createElement('li');
+            unorderlist.appendChild(li);
+            li.textContent = this.numberOfCustumer[i];
+        }
+        },
+}
+Tokyo.getcustumernumber();
+Tokyo.getAverageCookisPerHour();
 
 
