@@ -1,9 +1,11 @@
 'use strict';
-let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm'];
+let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm','7pm'];
 const Seattle = {
+    location : 'Seattle',
     min: 23,
     max: 65,
     Avg: 6.3,
+    total : 0,
     numberOfCustumer: [],
     AverageCookisPerHour: [],
     getcustumernumber: function () {
@@ -14,27 +16,38 @@ const Seattle = {
     },
     getAverageCookisPerHour: function () {
         for (let n = 0; n <= this.numberOfCustumer.length - 1; n++) {
-            this.AverageCookisPerHour.push(Math.floor(this.numberOfCustumer[n] * this.Avg))
+            let val= Math.floor(this.numberOfCustumer[n] * this.Avg)
+            this.AverageCookisPerHour.push(val)
+            this.total = this.total + val
+        // console.log (this.total);
         }
-        console.log('Average Cookis Per Hour',this.AverageCookisPerHour)
+        
+        console.log('Average Cookies Per Hour',this.AverageCookisPerHour)
+
     },
     display:function(){
-        let container = document.getElementById('display');
+        let container = document.getElementById('Locations');
+        let h2 = document.createElement ('h2');
+        container.appendChild(h2);
+        h2.textContent = this.location 
         let unorderlist = document.createElement('ul');
         container.appendChild(unorderlist);
         let li = 0;
         for(let i = 0 ; i < hours.length ; i++){
             li = document.createElement('li');
             unorderlist.appendChild(li);
-            li.textContent = this.numberOfCustumer[i];
-        }},
-
-
+            li.textContent = `${hours[i]}:${this.AverageCookisPerHour[i]}`;
+            
+            }
+          let liTotal = document.createElement ('li');
+            unorderlist.appendChild(liTotal);
+            liTotal.textContent = `total :${this.total}`
+        }
 }
 
 Seattle.getcustumernumber();
 Seattle.getAverageCookisPerHour();
-
+Seattle.display();
 
 
 function randomValue(min, max) { 
@@ -42,11 +55,12 @@ function randomValue(min, max) {
 }
 
 
-
 const Tokyo = {
-    min: 3 ,
-    max: 24 ,
-    Avg: 1.2 ,
+    location : 'Tokyo',
+    min: 3,
+    max: 24,
+    Avg: 1.2,
+    total : 0,
     numberOfCustumer: [],
     AverageCookisPerHour: [],
     getcustumernumber: function () {
@@ -57,31 +71,47 @@ const Tokyo = {
     },
     getAverageCookisPerHour: function () {
         for (let n = 0; n <= this.numberOfCustumer.length - 1; n++) {
-            this.AverageCookisPerHour.push(Math.floor(this.numberOfCustumer[n] * this.Avg))
+            let val= Math.floor(this.numberOfCustumer[n] * this.Avg)
+            this.AverageCookisPerHour.push(val)
+            this.total = this.total + val
+        
         }
-        console.log('Average Cookis Per Hour',this.AverageCookisPerHour)
-    },
+        
+        console.log('Average Cookies Per Hour',this.AverageCookisPerHour)
 
+    },
     display:function(){
-        let container = document.getElementById('display');
+        let container = document.getElementById('Locations');
+        let h2 = document.createElement ('h2');
+        container.appendChild(h2);
+        h2.textContent = this.location 
         let unorderlist = document.createElement('ul');
         container.appendChild(unorderlist);
         let li = 0;
         for(let i = 0 ; i < hours.length ; i++){
             li = document.createElement('li');
             unorderlist.appendChild(li);
-            li.textContent = this.numberOfCustumer[i];
+            li.textContent = `${hours[i]}:${this.AverageCookisPerHour[i]}`;
+            
+            }
+          let liTotal = document.createElement ('li');
+            unorderlist.appendChild(liTotal);
+            liTotal.textContent = `total :${this.total}`
         }
-        },
 }
+
 Tokyo.getcustumernumber();
 Tokyo.getAverageCookisPerHour();
+Tokyo.display();
+
 
 
 const Dubai = {
-    min: 11 ,
-    max: 38 ,
-    Avg: 3.7 ,
+    location : 'Dubai',
+    min: 11,
+    max: 38,
+    Avg: 3.7,
+    total : 0,
     numberOfCustumer: [],
     AverageCookisPerHour: [],
     getcustumernumber: function () {
@@ -92,32 +122,47 @@ const Dubai = {
     },
     getAverageCookisPerHour: function () {
         for (let n = 0; n <= this.numberOfCustumer.length - 1; n++) {
-            this.AverageCookisPerHour.push(Math.floor(this.numberOfCustumer[n] * this.Avg))
+            let val= Math.floor(this.numberOfCustumer[n] * this.Avg)
+            this.AverageCookisPerHour.push(val)
+            this.total = this.total + val
+        // console.log (this.total);
         }
-        console.log('Average Cookis Per Hour',this.AverageCookisPerHour)
+        
+        console.log('Average Cookies Per Hour',this.AverageCookisPerHour)
+
     },
     display:function(){
-        let container = document.getElementById('display');
+        let container = document.getElementById('Locations');
+        let h2 = document.createElement ('h2');
+        container.appendChild(h2);
+        h2.textContent = this.location 
         let unorderlist = document.createElement('ul');
         container.appendChild(unorderlist);
-        let li = [];
+        let li = 0;
         for(let i = 0 ; i < hours.length ; i++){
             li = document.createElement('li');
             unorderlist.appendChild(li);
-            li.textContent = this.numberOfCustumer[i];
-        }},
-
+            li.textContent = `${hours[i]}:${this.AverageCookisPerHour[i]}`;
+            
+            }
+          let liTotal = document.createElement ('li');
+            unorderlist.appendChild(liTotal);
+            liTotal.textContent = `total :${this.total}`
+        }
 }
+
 Dubai.getcustumernumber();
 Dubai.getAverageCookisPerHour();
+Dubai.display();
 
 
 
 const Paris = {
-    min: 20 ,
-    max: 38 ,
-    Avg: 2.3 ,
-
+    location : 'Paris',
+    min: 20,
+    max: 38,
+    Avg: 2.3,
+    total : 0,
     numberOfCustumer: [],
     AverageCookisPerHour: [],
     getcustumernumber: function () {
@@ -128,30 +173,48 @@ const Paris = {
     },
     getAverageCookisPerHour: function () {
         for (let n = 0; n <= this.numberOfCustumer.length - 1; n++) {
-            this.AverageCookisPerHour.push(Math.floor(this.numberOfCustumer[n] * this.Avg))
+            let val= Math.floor(this.numberOfCustumer[n] * this.Avg)
+            this.AverageCookisPerHour.push(val)
+            this.total = this.total + val
+        // console.log (this.total);
         }
-        console.log('Average Cookis Per Hour',this.AverageCookisPerHour)
+        
+        console.log('Average Cookies Per Hour',this.AverageCookisPerHour)
+
     },
     display:function(){
-        let container = document.getElementById('display');
+        let container = document.getElementById('Locations');
+        let h2 = document.createElement ('h2');
+        container.appendChild(h2);
+        h2.textContent = this.location 
         let unorderlist = document.createElement('ul');
         container.appendChild(unorderlist);
-        let li = [];
+        let li = 0;
         for(let i = 0 ; i < hours.length ; i++){
             li = document.createElement('li');
             unorderlist.appendChild(li);
-            li.textContent = this.numberOfCustumer[i];
-        }},
+            li.textContent = `${hours[i]}:${this.AverageCookisPerHour[i]}`;
+            
+            }
+          let liTotal = document.createElement ('li');
+            unorderlist.appendChild(liTotal);
+            liTotal.textContent = `total :${this.total}`
+        }
 }
+
 Paris.getcustumernumber();
 Paris.getAverageCookisPerHour();
+Paris.display();
+
 
 
 
 const Lima = {
-    min: 2 ,
-    max: 16 ,
-    Avg: 4.6 ,
+    location : 'Lima',
+    min: 2,
+    max: 16,
+    Avg: 4.6,
+    total : 0,
     numberOfCustumer: [],
     AverageCookisPerHour: [],
     getcustumernumber: function () {
@@ -162,21 +225,35 @@ const Lima = {
     },
     getAverageCookisPerHour: function () {
         for (let n = 0; n <= this.numberOfCustumer.length - 1; n++) {
-            this.AverageCookisPerHour.push(Math.floor(this.numberOfCustumer[n] * this.Avg))
+            let val= Math.floor(this.numberOfCustumer[n] * this.Avg)
+            this.AverageCookisPerHour.push(val)
+            this.total = this.total + val
+        // console.log (this.total);
         }
-        console.log('Average Cookis Per Hour',this.AverageCookisPerHour)
+        
+        console.log('Average Cookies Per Hour',this.AverageCookisPerHour)
+
     },
     display:function(){
-        let container = document.getElementById('display');
+        let container = document.getElementById('Locations');
+        let h2 = document.createElement ('h2');
+        container.appendChild(h2);
+        h2.textContent = this.location 
         let unorderlist = document.createElement('ul');
         container.appendChild(unorderlist);
-        let li = [];
+        let li = 0;
         for(let i = 0 ; i < hours.length ; i++){
             li = document.createElement('li');
             unorderlist.appendChild(li);
-            li.textContent = this.numberOfCustumer[i];
-        }},
-
+            li.textContent = `${hours[i]}:${this.AverageCookisPerHour[i]}`;
+            
+            }
+          let liTotal = document.createElement ('li');
+            unorderlist.appendChild(liTotal);
+            liTotal.textContent = `total :${this.total}`
+        }
 }
+
 Lima.getcustumernumber();
 Lima.getAverageCookisPerHour();
+Lima.display();
